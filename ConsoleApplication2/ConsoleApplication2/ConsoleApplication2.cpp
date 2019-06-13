@@ -80,18 +80,6 @@ void compare(string a, bool b, string& c, int& d)
 		cout << "--|--" << endl;
 		cout << "     " << endl;
 	}
-
-	if (d == 5)
-	{
-		cout << "-----" << endl;
-		cout << "  |  " << endl;
-		cout << "--O--" << endl;
-		cout << "-/|\-" << endl;
-		cout << "--|--" << endl;
-		cout << "-/ \-" << endl;
-		cout << "" << endl;
-		cout << "YOU LOSE" << endl;
-	}
 }
 
 int main()
@@ -117,6 +105,21 @@ int main()
 			solved = true;
 
 			cout << "You Win";
+		}
+		
+		if (fails == 5)
+		{
+			cout << "-----" << endl;
+			cout << "  |  " << endl;
+			cout << "--O--" << endl;
+			cout << "-/|\-" << endl;
+			cout << "--|--" << endl;
+			cout << "-/ \-" << endl;
+			cout << "" << endl;
+			cout << "YOU LOSE" << endl;
+
+			solved = true;
+
 		}
 	}
 }
