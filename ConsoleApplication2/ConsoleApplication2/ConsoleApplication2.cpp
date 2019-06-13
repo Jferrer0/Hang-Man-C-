@@ -2,56 +2,121 @@
 
 using namespace std;
 
-bool compare(string a)
+void compare(string a, bool b, string& c, int& d)
 {
 	char letter;
 
 	cout << "Please try and guess a letter: ";
 	cin >> letter;
 
+	cout << c << endl;
+	cout << d << endl;
+
 	bool correctGuess = false;
 
-	string guess = { "_ _ _ _ _" };
-	
-	cout << guess << endl;
-
-	for (int i = 0; letter != a[i]; i++)
+	for (int i = 0; i < a.size(); i++)
 	{
-		if (a[i] == letter)
+		if (letter == a[i])
 		{
-			guess[i] = a[i];
+			c[i] = a[i];
 
 			correctGuess = true;
 
-			cout << guess << endl;
+			cout << c << endl;
 		}
 	}
 
-	return correctGuess;
+	if (correctGuess == false)
+	{
+		d++;
+	}
+
+	if (d == 0)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "" << endl;
+		cout << "" << endl;
+		cout << "" << endl;
+		cout << "" << endl;
+	}
+
+	if (d == 1)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "--O--" << endl;
+		cout << "     " << endl;
+		cout << "     " << endl;
+		cout << "     " << endl;
+	}
+
+	if (d == 2)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "--O--" << endl;
+		cout << "--|--" << endl;
+		cout << "     " << endl;
+		cout << "     " << endl;
+	}
+
+	if (d == 3)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "--O--" << endl;
+		cout << "-/|\-" << endl;
+		cout << "     " << endl;
+		cout << "     " << endl;
+	}
+
+	if (d == 4)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "--O--" << endl;
+		cout << "-/|\-" << endl;
+		cout << "--|--" << endl;
+		cout << "     " << endl;
+	}
+
+	if (d == 5)
+	{
+		cout << "-----" << endl;
+		cout << "  |  " << endl;
+		cout << "--O--" << endl;
+		cout << "-/|\-" << endl;
+		cout << "--|--" << endl;
+		cout << "-/ \-" << endl;
+		cout << "" << endl;
+		cout << "YOU LOSE" << endl;
+	}
 }
 
 int main()
 {
-	bool solved = false;
-
 	int fails = 0;
+
+	bool solved = false;
 
 	string word = { "Korea" };
 
+	string wordGuess = { "-----" };
+
 	cout << word.size() << endl;
+
+
 
 	while (solved == false)
 	{
-		bool guess = compare(word);
+		compare(word, solved, wordGuess, fails);
 
-		if (guess == false)
+		if (wordGuess == word)
 		{
-			fails++;
-		}
+			solved = true;
 
-		if (fails == 6)
-		{
-			cout << "You lose" << endl;
+			cout << "You Win";
 		}
 	}
 }
